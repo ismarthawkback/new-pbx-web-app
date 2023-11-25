@@ -2,6 +2,9 @@ import Typography from '@mui/material/Typography'
 import { ThemeContext } from './contexts/ThemeContext'
 import { useContext } from 'react'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import ThemeToggle from './components/navbar-components/ThemeToggle'
+// import Login from './pages/Login'
+import LoginPage from './pages/LoginPage'
 
 
 function App() {
@@ -17,10 +20,11 @@ function App() {
     <>
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
-      <Typography variant="h1">Hi, {theme}</Typography>
 
 
-      
+      <ThemeToggle />
+      {/* <Login /> */}
+      <LoginPage />
     </ThemeProvider>
       
     </>
