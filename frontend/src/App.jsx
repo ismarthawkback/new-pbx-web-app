@@ -5,6 +5,7 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 import ThemeToggle from './components/navbar-components/ThemeToggle'
 import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <Navbar />
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <HomePage />
       <ThemeToggle />
       
     </ThemeProvider>
