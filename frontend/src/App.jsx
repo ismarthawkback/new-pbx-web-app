@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 import ThemeToggle from './components/navbar-components/ThemeToggle'
 import Navbar from './components/Navbar'
+import LoginPage from './pages/LoginPage'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <Navbar />
-      {/* <Navbar /> */}
+      <LoginPage />
       <ThemeToggle />
       
     </ThemeProvider>
