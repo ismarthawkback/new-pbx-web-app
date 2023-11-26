@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{marginBottom : 6}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -53,7 +53,7 @@ export default function Navbar() {
                 <ThemeToggle />
                 <Typography variant="boday2">Dark Mode</Typography>
             </Stack> */}
-            <Typography variant="body1">Hello, User</Typography>
+            <Typography variant="body1">Hello, Damodar</Typography>
             <IconButton
               size="large"
               aria-controls="menu-appbar"

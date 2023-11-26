@@ -34,8 +34,8 @@ export default function LoginForm() {
           }}
         > 
           <Typography variant='h4'>Login Here !</Typography>
-          <TextField label="username" value={username} onChange={e => setUsername(e.target.value)} fullWidth />
-          <TextField label="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth />
+          <TextField label="Username" value={username} onChange={e => setUsername(e.target.value)} fullWidth />
+          <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth />
           <Button onClick={handleSubmit}>Login</Button>
         </Stack>
         
