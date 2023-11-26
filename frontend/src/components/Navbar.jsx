@@ -37,16 +37,18 @@ export default function Navbar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
             onClick={() => setDrawerOpen(true)}
           >
             <MenuIcon />
           </IconButton>
+          <img src='/cdot_logo_half.png' style={{
+            height : '40px', width : '35px', marginRight : '10px', objectFit : 'contain'
+          }}/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             CDOT VoIP
           </Typography>
 
-          <Stack direction='row' spacing={1} sx={{alignItems : 'center'}}>
+          <Stack direction='row'  sx={{alignItems : 'center'}}>
             {/* <Stack>
                 <ThemeToggle />
                 <Typography variant="boday2">Dark Mode</Typography>
