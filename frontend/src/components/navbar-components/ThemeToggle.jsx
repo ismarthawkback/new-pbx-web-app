@@ -4,11 +4,12 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 import Switch from '@mui/material/Switch'
 
 export default function ThemeToggle() {
-    const {toggleTheme} = useContext(ThemeContext)
+    const {toggleTheme, theme} = useContext(ThemeContext)
   return (
     <>
         <Switch
           onChange={toggleTheme}
+          defaultChecked={theme === 'dark' ? true : false}
         />
     </>
   )

@@ -9,14 +9,16 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Stack } from "@mui/material";
-import ThemeToggle from "./navbar-components/ThemeToggle";
+import SideDrawer from "./navbar-components/SideDrawer";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const setDrawerState = (open) => {
+    setDrawerOpen(open)
+  }
+ 
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,6 +38,7 @@ export default function Navbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={() => setDrawerOpen(true)}
           >
             <MenuIcon />
           </IconButton>
@@ -78,6 +81,7 @@ export default function Navbar() {
           </Stack>
         </Toolbar>
       </AppBar>
+      <SideDrawer drawerOpen={drawerOpen} setDrawerState={setDrawerState}/>
     </Box>
   );
 }
