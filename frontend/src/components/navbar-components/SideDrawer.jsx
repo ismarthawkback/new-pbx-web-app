@@ -11,13 +11,16 @@ import ListItemText from "@mui/material/ListItemText";
 import { IconButton, Stack } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import StorageIcon from "@mui/icons-material/Storage";
+import HomeIcon from '@mui/icons-material/Home';
 import ThemeToggle from "./ThemeToggle";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function SideDrawer({drawerOpen, setDrawerState}) {
   const state = drawerOpen;
-
+  const navigate = useNavigate()
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -54,7 +57,17 @@ export default function SideDrawer({drawerOpen, setDrawerState}) {
                 marginTop: 3,
               }}
             >
-              <ListItemButton>
+              <ListItemButton onClick={() => navigate('/')}>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem
+              disablePadding
+            >
+              <ListItemButton onClick={() => navigate('database')}>
                 <ListItemIcon>
                   <StorageIcon />
                 </ListItemIcon>

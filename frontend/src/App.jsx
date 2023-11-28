@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import {Routes, Route} from 'react-router-dom'
+import DatabasePage from './pages/DatabasePage'
 
 
 function App() {
@@ -26,7 +27,11 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='login' element={<LoginPage />} />
+        <Route path='database' element={<DatabasePage />}>
+
+        </Route>
       </Routes>
+      {/* <DatabasePage /> */}
       {/* <LoginPage />
       <HomePage /> */}
 
