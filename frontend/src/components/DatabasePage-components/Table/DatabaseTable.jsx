@@ -2,7 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 
 import DatabaseBreadCrumbs from "../DatabaseBreadCrumbs";
-import FilterTableExample from "./FilterTableExample";
+import FilterTable from "./FilterTable";
+import { Outlet, Route } from "react-router-dom";
 
 export default function DatabaseTable() {
   return (
@@ -12,9 +13,9 @@ export default function DatabaseTable() {
           padding: 1,
           margin: 2,
         }}
-      >
+      > <Outlet/ >
         <DatabaseBreadCrumbs />
-        <FilterTableExample />
+        <FilterTable />
       </Box>
     </div>
   );

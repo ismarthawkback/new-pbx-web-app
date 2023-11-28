@@ -8,6 +8,11 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Tune from '@mui/icons-material/Tune';
 import Add from '@mui/icons-material/Add';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { rowSelectionStateInitializer } from '@mui/x-data-grid/internals';
+
+
+
 
 const actions = [
   { icon: <AddIcon />, name: "Add", onclick : function () {
@@ -17,29 +22,7 @@ const actions = [
   { icon: <DeleteForeverIcon />, name: "Delete" },
 ];
 
-const columns = [
-  {
-    field: 'edit',
-    headerName: 'Edit',
-    width: 50,
-    sortable: false,
-    filterable: false,
-    disableColumnMenu: true,
-    renderCell: (params) => (
-      <IconButton
-        onClick={() => handleEditClick(params.row.id)}
-        aria-label="edit"
-      >
-        <EditIcon />
-      </IconButton>
-    ),
-  },
-  { field: 'id', headerName: 'ID', width: 200 },
-  { field: 'firstName', headerName: 'First Name',  width: 200 },
-  { field: 'lastName', headerName: 'Last Name',  width: 200 },
-  { field: 'age', headerName: 'Age', type: 'number',  width: 200},
-  { field: 'email', headerName: 'Email',  width: 200 },
-];
+
 
 // Generate 40 rows of sample data
 const generateRows = () => {
@@ -56,12 +39,41 @@ const generateRows = () => {
   return rows;
 };
 
-const FilterTableExample = () => {
+const FilterTable= () => {
   const [selectionModel, setSelectionModel] = React.useState([]);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const columns = [
+    {
+      field: "edit",
+      headerName: "Edit",
+      width: 50,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+      renderCell: (params) => (
+        <IconButton
+          onClick={() => {
+            navigate(pathname + "/" + params.row.id);
+          }}
+          aria-label="edit"
+        >
+          <EditIcon />
+        </IconButton>
+      ),
+    },
+    { field: "id", headerName: "ID", width: 200 },
+    { field: "firstName", headerName: "First Name", width: 200 },
+    { field: "lastName", headerName: "Last Name", width: 200 },
+    { field: "age", headerName: "Age", type: "number", width: 200 },
+    { field: "email", headerName: "Email", width: 200 },
+  ];
 
   const rows = React.useMemo(() => generateRows(), []);
 
   
+  // console.log(pathname)
 
   return (
     <div style={{ height: "65vh", width: "100%" }}>
@@ -104,4 +116,4 @@ const FilterTableExample = () => {
   );
 };
 
-export default FilterTableExample;
+export default FilterTable;

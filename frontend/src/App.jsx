@@ -10,6 +10,7 @@ import {Routes, Route} from 'react-router-dom'
 import DatabasePage from './pages/DatabasePage'
 import DatabaseTables from './components/DatabasePage-components/Home/DatabaseTables'
 import DatabaseTable from './components/DatabasePage-components/Table/DatabaseTable'
+import DatabaseForm from './components/DatabasePage-components/Form/DatabaseForm'
 
 
 function App() {
@@ -31,14 +32,16 @@ function App() {
         <Route path='login' element={<LoginPage />} />
         <Route path='database' element={<DatabasePage />}>
             <Route path="" element={<DatabaseTables />} />
-            <Route path=':table' element={<DatabaseTable />} />
+            <Route path=':table' element={<DatabaseTable />} /> 
+            <Route path=':table/new' element={<DatabaseForm />} />
+            <Route path=':table/:id' element={<DatabaseForm />} />
         </Route>
       </Routes>
       {/* <DatabasePage /> */}
       {/* <LoginPage />
       <HomePage /> */}
 
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       
     </ThemeProvider>
       
