@@ -6,6 +6,7 @@ import ThemeToggle from './components/navbar-components/ThemeToggle'
 import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import {Routes, Route} from 'react-router-dom'
 
 
 function App() {
@@ -22,8 +23,13 @@ function App() {
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <Navbar />
-      {/* <LoginPage /> */}
-      <HomePage />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='login' element={<LoginPage />} />
+      </Routes>
+      {/* <LoginPage />
+      <HomePage /> */}
+
       <ThemeToggle />
       
     </ThemeProvider>
