@@ -18,6 +18,8 @@ const StatusBox = () => {
       sx={{
         padding: "10px",
         flex: 1,
+        minWidth : "320px",
+        border : 1,
       }}
     >
       <Stack
