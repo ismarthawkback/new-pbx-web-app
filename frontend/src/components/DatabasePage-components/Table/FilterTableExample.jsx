@@ -1,12 +1,32 @@
 import * as React from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import { columnGroupsStateInitializer } from '@mui/x-data-grid/internals';
+
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'firstName', headerName: 'First Name', width: 150 },
-  { field: 'lastName', headerName: 'Last Name', width: 150 },
-  { field: 'age', headerName: 'Age', type: 'number', width: 110 },
-  { field: 'email', headerName: 'Email', width: 200 },
+  {
+    field: 'edit',
+    headerName: 'Edit',
+    width: 100,
+    sortable: false,
+    filterable: false,
+    disableColumnMenu: true,
+    renderCell: (params) => (
+      <IconButton
+        onClick={() => handleEditClick(params.row.id)}
+        aria-label="edit"
+      >
+        <EditIcon />
+      </IconButton>
+    ),
+  },
+  { field: 'id', headerName: 'ID', width: 200 },
+  { field: 'firstName', headerName: 'First Name',  width: 200 },
+  { field: 'lastName', headerName: 'Last Name',  width: 200 },
+  { field: 'age', headerName: 'Age', type: 'number',  width: 200},
+  { field: 'email', headerName: 'Email',  width: 200 },
 ];
 
 // Generate 40 rows of sample data

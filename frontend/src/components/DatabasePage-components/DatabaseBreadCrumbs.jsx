@@ -30,7 +30,10 @@ function DatabaseBreadCrumbs() {
               {name.capitalize()}
             </Typography>
           ) : (
-            <Link color="inherit" to={routeTo} key={name}>
+            <Link to={routeTo} key={name} style={{
+              textDecoration : 'none',
+              color : 'inherit'
+            }}>
               {name.capitalize()}
             </Link>
           );
