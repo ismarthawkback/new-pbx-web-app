@@ -95,22 +95,23 @@ const FilterTable= () => {
         icon={<Tune />}
         direction="left"
       >
-        {selectionModel.length === 0 ? 
-        <SpeedDialAction
-        icon={<AddIcon />}
-        tooltipTitle={"Add Row"}
-        onClick={(e) => {
-          
-        }}
-        /> :
-        <SpeedDialAction
-        icon={<DeleteForeverIcon />}
-        tooltipTitle={"Delete Rows"}
-        onClick={(e) => {
-          
-        }}
-        />
-      }
+        {selectionModel.length === 0 ? (
+          <SpeedDialAction
+            icon={<AddIcon />}
+            tooltipTitle={"Add Row"}
+            onClick={() => {
+              navigate(pathname + "/new");
+            }}
+          />
+        ) : (
+          <SpeedDialAction
+            icon={<DeleteForeverIcon />}
+            tooltipTitle={"Delete Rows"}
+            onClick={(e) => {
+              alert("Rows Deleted")
+            }}
+          />
+        )}
       </SpeedDial>
     </div>
   );
