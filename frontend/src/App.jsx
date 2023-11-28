@@ -8,6 +8,8 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import {Routes, Route} from 'react-router-dom'
 import DatabasePage from './pages/DatabasePage'
+import DatabaseTables from './components/DatabasePage-components/Home/DatabaseTables'
+import DatabaseTable from './components/DatabasePage-components/Table/DatabaseTable'
 
 
 function App() {
@@ -28,7 +30,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='login' element={<LoginPage />} />
         <Route path='database' element={<DatabasePage />}>
-
+            <Route path="" element={<DatabaseTables />} />
+            <Route path=':table' element={<DatabaseTable />} />
         </Route>
       </Routes>
       {/* <DatabasePage /> */}

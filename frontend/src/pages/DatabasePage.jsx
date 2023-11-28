@@ -1,6 +1,4 @@
-import { Box, Breadcrumbs, Paper, Typography } from "@mui/material";
-import { Link, Grid } from "@mui/material";
-import TableBox from "../components/DatabasePage-components/TableBox";
+import { Box, Typography } from "@mui/material";
 import { Outlet} from 'react-router-dom'
 
 const tables = [
@@ -24,35 +22,7 @@ function DatabasePage() {
             margin : 2,
           }}
         >
-          <Breadcrumbs
-            sx={{
-              marginBottom: 2,
-            }}
-          >
-            <Typography color={"inherit"}>All Tables</Typography>
-          </Breadcrumbs>
-          <Grid
-            container
-            columnSpacing={2}
-            rowGap={2}
-            sx={{
-              padding: 1,
-              alignContent: "center",
-              alignItems: "center",
-              marginBottom: "20px",
-            }}
-          >
-            {tables.map((tableName, index) => (
-                
-
-            <Grid item key={index}> 
-              <TableBox tableName={tableName} />
-            </Grid>
-
-                
-            ))}
-            
-          </Grid>
+          <Outlet />
         </Box>
       </Box>
     </>
