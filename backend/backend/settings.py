@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    'apiapp',
 ]
 
 MIDDLEWARE = [
@@ -74,11 +76,25 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }, 
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'asterisk',  
+        'USER': 'superuser',  
+        'PASSWORD': 'superpassword',  
+        'HOST': 'mysql',  
+        'PORT': '33060',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        } 
+    } 
 }
+
+import pymysql
+pymysql.install_as_MySQLdb()
 
 
 # Password validation
@@ -98,6 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+ALLOWED_HOSTS = ['*']
 
 
 # Internationalization
